@@ -1,7 +1,9 @@
+import 'package:eyeglasses_store_dribbble/homepage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class FindGlasses extends StatefulWidget {
@@ -105,7 +107,7 @@ class _FindGlassesState extends State<FindGlasses> {
                       child: Container(
                         height: 10,
                         width: 10,
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           shape: BoxShape.circle,
                           color: Color.fromARGB(255, 238, 238, 238)
                         ),
@@ -118,7 +120,7 @@ class _FindGlassesState extends State<FindGlasses> {
                       child: Container(
                         height: 10,
                         width: 10,
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           shape: BoxShape.circle,
                           color: Color.fromARGB(255, 238, 238, 238)
                         ),
@@ -154,20 +156,23 @@ class _FindGlassesState extends State<FindGlasses> {
                               ),
                             ),
                     
-                            Padding(
-                              padding: const EdgeInsets.all(4.0),
-                              child: Container(
-                                decoration: const BoxDecoration(
-                                color: Color(0xFF1B1B1B),
-                                shape: BoxShape.circle
-                              ),
-                                child: Padding(
-                                  padding: const EdgeInsets.all(16.0).r,
-                                  child: Icon(
-                                      Icons.arrow_forward_ios,
-                                      size: 20.sp,
-                                      color: Colors.white,
-                                    ),
+                            GestureDetector(
+                              onTap:(){ Get.to(() => HomePage() );},
+                              child: Padding(
+                                padding: const EdgeInsets.all(4.0),
+                                child: Container(
+                                  decoration: const BoxDecoration(
+                                  color: Color(0xFF1B1B1B),
+                                  shape: BoxShape.circle
+                                ),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(16.0).r,
+                                    child: Icon(
+                                        Icons.arrow_forward_ios,
+                                        size: 20.sp,
+                                        color: Colors.white,
+                                      ),
+                                  ),
                                 ),
                               ),
                             ),

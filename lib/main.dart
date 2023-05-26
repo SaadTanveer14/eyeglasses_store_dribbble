@@ -1,7 +1,9 @@
 import 'package:eyeglasses_store_dribbble/findglasses.dart';
+import 'package:eyeglasses_store_dribbble/glassframe.dart';
 import 'package:eyeglasses_store_dribbble/homepage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,9 +21,9 @@ class MyApp extends StatelessWidget {
 
       
         builder: (context, child) {
-          return MaterialApp(
+          return GetMaterialApp(
             
-            home: const HomePage(),
+            home: const FindGlasses(),
             
           );
         }

@@ -37,6 +37,9 @@ dependencies:
   cupertino_icons: ^1.0.2
   google_fonts: ^4.0.4
   flutter_screenutil: ^5.7.0
+  feather_icons: ^1.2.0
+  get: ^4.6.5
+  font_awesome_flutter: ^10.4.0
 
 dev_dependencies:
   flutter_test:

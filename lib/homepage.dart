@@ -1,9 +1,13 @@
 import 'dart:ui';
 
+import 'package:eyeglasses_store_dribbble/glassframe.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class HomePage extends StatefulWidget {
@@ -31,11 +35,12 @@ class _HomePageState extends State<HomePage> {
                         color: Colors.white,
                         shape: BoxShape.circle,
                       ),
-                      child: const Padding(
-                        padding: EdgeInsets.all(8.0),
+                      child: Padding(
+                        padding: EdgeInsets.all(20.0).r,
                         child: Icon(
                         
-                          Icons.dataset,
+                          CupertinoIcons.square_grid_2x2_fill,
+                          size: 22
                           // color: Colors.white,
                         ),
                       ),
@@ -111,14 +116,34 @@ class _HomePageState extends State<HomePage> {
               ),
 
               Padding(
-                padding: EdgeInsets.symmetric(horizontal:20.0.w, vertical: 10.h),
-                child: Text(
-                  "Select the Best Frame",
-                  style: GoogleFonts.poppins (
-                    color: Colors.white,
-                    fontSize: 36.sp,
-                    height: 1.1.h
+                padding: EdgeInsets.fromLTRB(20.0.w, 0 , 20.0.w ,40.h),
+                child: RichText(
+                  text:TextSpan(
+                    
+                    children: [
+                      TextSpan(
+                        text: 'Select',
+                        style: GoogleFonts.roboto (
+                          color: Colors.white,
+                          fontSize: 36.sp,
+                          fontWeight: FontWeight.w400,
+
+                          height: 1.1.h
+                        ),
+                      ),
+
+                      TextSpan(
+                        text: ' the Best Frame',
+                        style: GoogleFonts.poppins (
+                          color: Colors.white,
+                          fontSize: 36.sp,
+                          fontWeight: FontWeight.w500,
+                          height: 1.1.h
+                        ),
+                      ) 
+                    ]
                   ),
+                  
                 ),
               ),
 
@@ -197,7 +222,7 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
 
-              SizedBox(height: 10.h),
+              // SizedBox(height: 10.h),
                     
               Expanded(
                 child: ListView(
@@ -205,123 +230,136 @@ class _HomePageState extends State<HomePage> {
                   children: [
 
 
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(8.0,0,8,8),
-                      child: Container(
-                        decoration: BoxDecoration(
-                          
-                          color: Color(0xFFC7F9A0),
-                          borderRadius: BorderRadius.all(Radius.circular(30))
-                        ),
-                        height: 0.5.sh,
-                        width: 1.sw,
-                        child: Stack(
-                          children: [
-                            Positioned(
-                              left: 0.1.sh,
-                              child: Container(
-                                child: Align(
-                                  alignment: Alignment.centerLeft,
-                                  child: Opacity(
-                                    opacity: 0.1,
-                                    child: Image.asset('assets/frame.png',
-                                      fit: BoxFit.fitWidth,
-                                      
+                    GestureDetector(
+                      onTap: () {
+                        Get.to(()=>GlassFrame());
+                      },
+                      child: Padding(
+                        padding: const EdgeInsets.fromLTRB(8.0,0,8,8),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            
+                            color: Color(0xFFC7F9A0),
+                            borderRadius: BorderRadius.all(Radius.circular(30))
+                          ),
+                          height: 0.5.sh,
+                          width: 1.sw,
+                          child: Stack(
+                            children: [
+                              Positioned(
+                                left: 0.1.sh,
+                                child: Container(
+                                  child: Align(
+                                    alignment: Alignment.centerLeft,
+                                    child: Opacity(
+                                      opacity: 0.1,
+                                      child: Image.asset('assets/frame.png',
+                                        fit: BoxFit.fitWidth,
+                                        
+                                      ),
                                     ),
+                                
                                   ),
-                              
                                 ),
                               ),
-                            ),
-
-                                Container(
-                                  decoration: BoxDecoration(
-                                    
-                                    color: Colors.white.withOpacity(0.3),
-                                    borderRadius: BorderRadius.all(Radius.circular(30)),
-
-                                  ), 
-                                  child: ClipRect(
-                                    child: Align(
-                                      alignment: Alignment.bottomLeft,
-                                      child: Container(
-                                        decoration: BoxDecoration(
-                                          borderRadius: BorderRadius.only( bottomLeft:Radius.circular(30), topRight:Radius.circular(30)),
-                                          color: Color(0xFFC7F9A0),
-
-                                        ),
-                                        width: 0.3.sw,
-                                        height: 0.08.sh,
-                                      ),
-                                    ),
-                                  ),                           
-                                ),
-
-                                Positioned(
-                                  top: 8.h,
-                                  right: 8.h,
-                                  child: 
+                    
                                   Container(
-                                    decoration: const BoxDecoration(
-                                      color: Color(0xFFFFFFFF),
-                                      shape: BoxShape.circle
-                                    ),
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(16.0).r,
-                                      child: const Icon(Icons.favorite_border_rounded),
-                                    ),  
-                                  )
-                                ),
-
-                                Positioned(
-                                  bottom: 8.h,
-                                  right: 8.h,
-                                  child: 
-                                  Container(
-                                    decoration: const BoxDecoration(
-                                      color: Color(0xFF1B1B17),
-                                      shape: BoxShape.circle
-                                    ),
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(16.0).r,
-                                      child: const Icon(
-                                          Icons.shopping_bag_rounded,
-                                          color: Colors.white,
-                                        ),
-                                    ),  
-                                  )
-                                ),
-
-                                Padding(
-                                  padding: EdgeInsets.only(left:8.0.w, top: 30.h),
-                                  child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        "DIOR\nCOMPOSIT 01",
-                                        style: GoogleFonts.poppins(
-                                          fontSize: 24.sp,
-                                          fontWeight: FontWeight.w500,
-                                          height: 1
+                                    decoration: BoxDecoration(
+                                      
+                                      color: Colors.white.withOpacity(0.3),
+                                      borderRadius: BorderRadius.all(Radius.circular(30)),
+                    
+                                    ), 
+                                    child: ClipRect(
+                                      child: Align(
+                                        alignment: Alignment.bottomLeft,
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                            borderRadius: BorderRadius.only( bottomLeft:Radius.circular(30), topRight:Radius.circular(30)),
+                                            color: Color(0xFFC7F9A0),
+                    
+                                          ),
+                                          child: Center(child: Text(
+                                              "\$575.00",
+                                              style: GoogleFonts.poppins(
+                                                fontSize: 20,
+                                                fontWeight: FontWeight.w600,
+                                                color: Color.fromARGB(255, 84, 88, 94)
+                                              ),
+                                            )),
+                                          width: 0.35.sw,
+                                          height: 0.08.sh,
                                         ),
                                       ),
-
-                                      Text(
-                                        "Color Options 3",
-                                        style: GoogleFonts.poppins(
-                                          fontSize: 10.sp,
-                                          fontWeight: FontWeight.w400,
-                                          color: Color.fromARGB(255, 86, 86, 86)
-                                        ),
-                                      ),
-                                    ],
+                                    ),                           
                                   ),
-                                ),
-
-                            Center(child: Container(child: Image.asset('assets/frame.png'))),
-                          ],
+                    
+                                  Positioned(
+                                    top: 8.h,
+                                    right: 8.h,
+                                    child: 
+                                    Container(
+                                      decoration: const BoxDecoration(
+                                        color: Color(0xFFFFFFFF),
+                                        shape: BoxShape.circle
+                                      ),
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(16.0).r,
+                                        child: const Icon(Icons.favorite_border_rounded),
+                                      ),  
+                                    )
+                                  ),
+                    
+                                  Positioned(
+                                    bottom: 8.h,
+                                    right: 8.h,
+                                    child: 
+                                    Container(
+                                      decoration: const BoxDecoration(
+                                        color: Color(0xFF1B1B17),
+                                        shape: BoxShape.circle
+                                      ),
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(16.0).r,
+                                        child: const Icon(
+                                            FontAwesomeIcons.bagShopping,
+                                            color: Colors.white,
+                                          ),
+                                      ),  
+                                    )
+                                  ),
+                    
+                                  Padding(
+                                    padding: EdgeInsets.only(left:8.0.w, top: 30.h),
+                                    child: Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          "DIOR\nCOMPOSIT 01",
+                                          style: GoogleFonts.poppins(
+                                            fontSize: 24.sp,
+                                            fontWeight: FontWeight.w500,
+                                            height: 1
+                                          ),
+                                        ),
+                    
+                                        Text(
+                                          "Color Options 3",
+                                          style: GoogleFonts.poppins(
+                                            fontSize: 10.sp,
+                                            fontWeight: FontWeight.w400,
+                                            color: Color.fromARGB(255, 86, 86, 86)
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                    
+                              Center(child: Container(child: Image.asset('assets/frame.png'))),
+                            ],
+                          ),
+                          
                         ),
-                        
                       ),
                     ),
 
